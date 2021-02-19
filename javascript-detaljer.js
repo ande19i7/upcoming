@@ -1,10 +1,10 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
-const medieurl = "https://babushka-dd8a.restdb.io/media/";
+const medieurl = "https://upcoming-e777.restdb.io/media/";
 let menu;
 const myHeaders = {
-    "x-apikey": "600ec2fb1346a1524ff12de4"
+    "x-apikey": "602e74085ad3610fb5bb6332"
 }
 
 console.log("ID", id);
@@ -15,7 +15,7 @@ let filter = "alle";
 let menuer;
 
 async function loadJSON() {
-    const JSONData = await fetch(`https://babushka-dd8a.restdb.io/rest/menu/${id}`, {
+    const JSONData = await fetch(`https://upcoming-e777.restdb.io/rest/kunstnere/${id}`, {
         headers: myHeaders
     });
     menu = await JSONData.json();
@@ -33,7 +33,7 @@ async function loadJSON() {
 
 
 
-    document.querySelector("#burgerknap").addEventListener("click", toggleMenu);
+
 
 }
 
@@ -75,14 +75,16 @@ function visMenu() {
 
     document.querySelector(".billede").title = menu.navn;
 
+    document.querySelector(".billedecredits").textContent = menu.billedecredits;
+
     document.querySelector(".navn").textContent = menu.navn;
 
-    document.querySelector(".pris").textContent = menu.pris + " kr.";
+    document.querySelector(".genre").textContent = "Genre: " + menu.genre;
     //VIRKER OGSÅ: klon.querySelector(".navn").innerHTML += ` ${menu.efternavn}`;
 
 
-    document.querySelector(".langbeskrivelse").textContent = menu.langbeskrivelse;
-    document.querySelector(".oprindelsesregion").textContent = menu.oprindelsesregion;
+    document.querySelector(".om").textContent = menu.om;
+    document.querySelector(".lyttere").textContent = menu.lyttere;
 
     document.querySelector("button").addEventListener("click", tilbageTilMenu);
 

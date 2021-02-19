@@ -20,10 +20,20 @@
 
 
     <header>
+        <h1>Upcoming</h1>
+        <nav class="navmenu">
 
+
+            <a data-genre="alle" class="valgt">Alle</a>
+            <a data-genre="Pop">Pop</a>
+            <a data-genre="Rap">Rap</a>
+            <a data-genre="RnB">RnB</a>
+            <a data-genre="Hip Hop">Hip Hop</a>
+
+        </nav>
     </header>
 
-
+    <h2>Alle</h2>
     <section id="liste">
 
     </section>
@@ -32,18 +42,32 @@
 
     <template>
         <article class="menu">
-            <img src="" alt="" class="billede">
-            <h2 class="navn"></h2>
-            <p class="pris"></p>
-            <p class="kortbeskrivelse"></p>
-            <p class="langbeskrivelse"></p>
-            <p class="oprindelsesregion"></p>
+            <div>
+                <h2 class="navn"></h2>
+                <p class="genre"></p>
+                <button>Vis mere</button>
+            </div>
+
+            <div class="billede-overlay">
+
+                <img src="" alt="" class="billede">
+                <div class="gradient"></div>
+
+            </div>
+
+
+
+            <div class="spotifylink"></div>
+
+
+
+
         </article>
     </template>
 
 
     <footer>
-
+        Subscribe!
 
 
     </footer>

@@ -1,7 +1,7 @@
 const header = document.querySelector("h2");
-const medieurl = "https://babushka-dd8a.restdb.io/media/";
+const medieurl = "https://upcoming-e777.restdb.io/media/";
 const myHeaders = {
-    "x-apikey": "600ec2fb1346a1524ff12de4"
+    "x-apikey": "602e74085ad3610fb5bb6332"
 }
 document.addEventListener("DOMContentLoaded", start)
 
@@ -22,7 +22,7 @@ function start() {
 
 
 
-    document.querySelector("#burgerknap").addEventListener("click", toggleMenu);
+
 
 
 }
@@ -50,7 +50,7 @@ function toggleMenu() {
 
 
 function filtrerMenuer() {
-    filter = this.dataset.kategori;
+    filter = this.dataset.genre;
 
     document.querySelector(".valgt").classList.remove("valgt");
     this.classList.add("valgt");
@@ -62,7 +62,7 @@ function filtrerMenuer() {
 
 
 async function loadJSON() {
-    const JSONData = await fetch("https://babushka-dd8a.restdb.io/rest/menu", {
+    const JSONData = await fetch("https://upcoming-e777.restdb.io/rest/kunstnere", {
 
         headers: myHeaders
     });
@@ -81,7 +81,7 @@ function visMenuer() {
     menuer.forEach(menu => {
         console.log(menu);
         // loop igennem json (menuer)
-        if (filter == menu.kategori || filter == "alle") {
+        if (filter == menu.genre || filter == "alle") {
             const klon = skabelon.cloneNode(true);
             klon.querySelector(".billede").src = medieurl + menu.billede;
 
@@ -91,14 +91,15 @@ function visMenuer() {
 
             klon.querySelector(".navn").textContent = menu.navn;
 
-            klon.querySelector(".pris").textContent = menu.pris + " kr.";
+            klon.querySelector(".genre").textContent = "Genre: " + menu.genre;
             //VIRKER OGSÅ: klon.querySelector(".navn").innerHTML += ` ${person.efternavn}`;
-            klon.querySelector(".kortbeskrivelse").textContent = menu.kortbeskrivelse;
 
 
-            klon.querySelector(".oprindelsesregion").textContent = menu.oprindelsesregion;
+            klon.querySelector(".spotifylink").innerHTML = menu.spotifylink;
 
-            klon.querySelector(".menu").addEventListener("click", () => visDetaljer(menu));
+
+
+            klon.querySelector(".menu button").addEventListener("click", () => visDetaljer(menu));
             dest.appendChild(klon);
         }
     })
