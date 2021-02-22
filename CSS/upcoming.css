@@ -44,3 +44,29 @@ article img {
     padding-left: 10vw;
     padding-right: 10vw;
 }
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    height: 5.5em;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.page-splash {
+    position: fixed;
+    top: 5.5em;
+    width: 100%;
+    z-index: -10;
+    height: 14em;
+    background-image: url(../baggrund.png);
+    background-size: cover;
+}
+
+.page-body {
+    position: relative;
+    top: 19.5em;
+    width: 100%;
+    background-color: rgba(255, 245, 238, 0);
+}
