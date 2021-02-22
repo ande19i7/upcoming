@@ -2,6 +2,7 @@ article {
     border: 1px solid black;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background-color: white;
 }
 
 .billede-overlay {
@@ -52,15 +53,17 @@ header {
     z-index: 10;
     height: 5.5em;
     background-color: rgba(255, 255, 255, 0);
+    color: white;
 }
 
 .page-splash {
     position: fixed;
-    top: 5.5em;
+    top: 0;
     width: 100%;
+    height: 100vh;
     z-index: -10;
-    height: 14em;
-    background-image: url(../baggrund.png);
+
+    background-image: url(/images/baggrund.png);
     background-size: cover;
 }
 
