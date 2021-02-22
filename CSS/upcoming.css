@@ -1,8 +1,9 @@
 article {
-    border: 1px solid black;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.71);
+    color: white;
+
 }
 
 .billede-overlay {
@@ -18,7 +19,13 @@ article {
     background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
 }
 
+
 .billede,
+.gradient {
+    grid-area: 1 / 1;
+}
+
+.page-splash,
 .gradient {
     grid-area: 1 / 1;
 }
@@ -56,7 +63,40 @@ header {
     color: white;
 }
 
+
+
+.logo {
+    position: relative;
+    text-align: center;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10vh;
+
+}
+
+
+
 .page-splash {
+    background-image: url(/images/baggrund1.jpg);
+    background-size: cover;
+    background-position: 50%;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
+.page-splash h2 {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 55px;
+    font-weight: 200;
+    width: 250px;
+    margin-left: 10vw;
+}
+
+.page-background {
+    background-position: 50%;
     position: fixed;
     top: 0;
     width: 100%;
