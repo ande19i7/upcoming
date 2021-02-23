@@ -25,16 +25,9 @@ async function loadJSON() {
 
 	const filterKnapper = document.querySelectorAll(".navmenu a");
 	filterKnapper.forEach(knap => knap.addEventListener("click", filtrerMenuer));
-	loadJSON();
 
 	const filterKnapper2 = document.querySelectorAll(".burgermenu a");
 	filterKnapper2.forEach(knap => knap.addEventListener("click", filtrerMenuer));
-	loadJSON();
-
-
-
-
-
 }
 
 

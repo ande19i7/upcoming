@@ -1,14 +1,7 @@
 body {
 	background-image: url("baggrund1.jpg");
 	background-size: cover;
-}
-article {
-	border: 1px solid black;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	margin-left: 200px;
-	margin-right: 200px;
-	grid-gap: 80px;
+	padding: 4vw;
 }
 p {
 	color: white;
@@ -17,11 +10,20 @@ p {
 h2 {
 	color: white;
 	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-size: 45px;
 }
 h3 {
 	color: white;
 	font-family: 'Barlow Semi Condensed', sans-serif;
-	margin-top: 6vw;
+	font-size: 30px;
+}
+.logo {
+	position: relative;
+	text-align: center;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 4vh;
 }
 .billede {
 	width: 100%;
@@ -41,26 +43,76 @@ h3 {
 .gradient {
 	grid-area: 1 / 1;
 }
-.billede-overlay:hover .gradient {
-	transform: scale(0);
-}
-.info {
-	{
-		width: 100%;
-		height: 100%;
-		background: black;
-		background: #C33764;
-		background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
-	}
-}
-.fa {
-	padding: 5px;
-	font-size: 50px;
-	width: 50px;
+
+/*.fa {
+	padding: 10px;
 	text-align: center;
 	text-decoration: none;
 	color: white;
+}*/
+
+.fa {
+	padding: 10px;
+	width: 40px;
+	text-align: center;
+	text-decoration: none;
+	background: white;
+	color: black;
+	border-radius: 50%;
+	border: 1px solid black;
+	transition-duration: 0.4s;
 }
 .fa:hover {
-	opacity: 0.7;
+	background-color: black;
+	color: white;
+}
+a:link {
+	color: black;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+button {
+	text-align: center;
+	color: white;
+	background-color: transparent;
+	border: none;
+	font-size: 1.5rem;
+}
+iframe {
+	width: 350px;
+	height: 270px;
+}
+.billedecredits {
+	font-style: italic;
+}
+input {
+	width: 30%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+@media only screen and (min-width: 600px) {
+	article {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin-left: 7vw;
+		margin-right: 7vw;
+		grid-gap: 80px;
+	}
+	h3 {
+		margin-top: 27vh;
+	}
+	.billede-overlay:hover .gradient {
+		opacity: 0;
+		transition: 1s;
+	}
+	.fa:hover {
+		opacity: 0.7;
+	}
+	iframe {
+		width: 1100px;
+		height: 620px;
+	}
 }
