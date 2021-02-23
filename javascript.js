@@ -3,6 +3,11 @@ const medieurl = "https://upcoming-e777.restdb.io/media/";
 const myHeaders = {
     "x-apikey": "602e74085ad3610fb5bb6332"
 }
+
+let scrollpos = function () {
+    return window.scrollY
+};
+
 document.addEventListener("DOMContentLoaded", start)
 
 let filter = "alle";
@@ -10,9 +15,10 @@ let menuer;
 
 
 
+
 // første funktion der kaldes efter DOM er loaded
 function start() {
-    const filterKnapper = document.querySelectorAll(".navmenu a");
+    const filterKnapper = document.querySelectorAll(".navmenu a button");
     filterKnapper.forEach(knap => knap.addEventListener("click", filtrerMenuer));
     loadJSON();
 
@@ -25,6 +31,36 @@ function start() {
 
 
 
+    document.querySelector("header").classList.add("fixed");
+
+
+
+}
+
+
+window.addEventListener('scroll', function () {
+
+    scrollpos = window.scrollY;
+
+    if (scrollpos > 700) {
+        addFixed();
+    } else if (scrollpos < 700) {
+        removeFixed();
+    }
+
+});
+
+function addFixed() {
+    document.querySelector("header").classList.remove("absolute");
+    document.querySelector("header").classList.add("fixed");
+    console.log("add fixed");
+
+}
+
+function removeFixed() {
+    document.querySelector("header").classList.remove("fixed");
+    document.querySelector("header").classList.add("absolute");
+    console.log("stop fixed");
 }
 
 

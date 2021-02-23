@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="CSS/mutual.css">
     <link rel="stylesheet" href="CSS/upcoming.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Semi+Condensed:ital,wght@1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
 
 </head>
 
@@ -21,16 +22,15 @@
 
 
 
-    <header>
-
-
-
+    <header class="absolute">
         <nav class="navmenu">
-            <a data-genre="alle" class="valgt">Alle</a>
-            <a data-genre="Pop">Pop</a>
-            <a data-genre="Rap">Rap</a>
-            <a data-genre="RnB">RnB</a>
-            <a data-genre="Hip Hop">Hip Hop</a>
+            <a><button data-genre="alle" class="valgt">Alle</button></a>
+            <a><button data-genre="Pop">Pop</button></a>
+            <a><button data-genre="Rap">Rap</button></a>
+            <a><button data-genre="RnB">RnB</button></a>
+            <a>
+                <button data-genre="Hip Hop">Hip Hop</button>
+            </a>
         </nav>
     </header>
 
@@ -39,7 +39,8 @@
         <nav class="logo">
             <img src="/images/logo_hvidt.svg" alt="logo">
         </nav>
-        <h2>Alt nyt fra den danske musikscene til dig</h2>
+        <h1>Alt nyt fra den danske musikscene til dig</h1>
+        <h3>Scroll ned 🠗</h3>
     </div>
 
 
@@ -52,7 +53,7 @@
     <div class="page-body">
 
 
-        <h2>Alle</h2>
+        <h2 class="genretitel">Alle</h2>
         <section id="liste">
 
 
@@ -70,7 +71,7 @@
                 <div>
                     <h2 class="navn"></h2>
                     <p class="genre"></p>
-                    <button>Vis mere</button>
+                    <button class="articleknap">Vis mere</button>
                 </div>
 
                 <div class="billede-overlay">
@@ -101,6 +102,4 @@
 
     <script src="javascript.js"></script>
 
-</body>
-
-</html>
+</body></html>
