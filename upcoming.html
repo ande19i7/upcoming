@@ -12,94 +12,69 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Semi+Condensed:ital,wght@1,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
-
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
 </head>
 
 
 
 <body>
-
-
-
-
     <header class="absolute">
+        <!--filtreringsknapper med data attributter-->
         <nav class="navmenu">
             <a><button data-genre="alle" class="valgt">Alle</button></a>
             <a><button data-genre="Pop">Pop</button></a>
             <a><button data-genre="Rap">Rap</button></a>
             <a><button data-genre="RnB">RnB</button></a>
-            <a>
-                <button data-genre="Hip Hop">Hip Hop</button>
-            </a>
+            <a><button data-genre="Hip Hop">Hip Hop</button></a>
         </nav>
     </header>
 
 
+    <!--splash-billede indsat via CSS-->
     <div class="page-splash">
+        <!--logo og headers på splash-billede-->
         <nav class="logo">
-            <img src="/images/logo_hvidt.svg" alt="logo">
+            <img src="../images/logohvidt.svg" alt="logo">
         </nav>
         <h1>Alt nyt fra den danske musikscene til dig</h1>
         <h3>Scroll ned 🠗</h3>
     </div>
 
 
-
-    <div class="page-background">
-        <h1>Upcoming</h1>
-    </div>
+    <!--fixed baggrund indsat via CSS-->
+    <div class="page-background"></div>
 
 
     <div class="page-body">
-
-
-        <h2 class="genretitel">Alle</h2>
-        <section id="liste">
-
-
-
-
-        </section>
-
-
-
-
-
-
-        <template>
-            <article class="menu">
-                <div>
-                    <h2 class="navn"></h2>
-                    <p class="genre"></p>
-                    <button class="articleknap">Vis mere</button>
-                </div>
-
-                <div class="billede-overlay">
-
-                    <img src="" alt="" class="billede">
-                    <div class="gradient"></div>
-
-                </div>
-
-
-
-                <div class="spotifylink"></div>
-
-
-
-            </article>
-        </template>
-
-
-
-
+        <main>
+            <h2 class="genretitel">Alle</h2>
+            <!--tom container til alle kunstnerne-->
+            <section id="liste"></section>
+        </main>
         <footer>
             Subscribe!
-
         </footer>
     </div>
 
-
+    <!--indholdet af <template> tag er html skabelon for de enkelte kunstnere-->
+    <template>
+        <article class="kunstner">
+            <div>
+                <h2 class="navn"></h2>
+                <p class="genre"></p>
+                <button class="articleknap">Vis mere</button>
+            </div>
+            <div class="billede-overlay">
+                <img src="" alt="" class="billede">
+                <!--gradient overlay over billede-->
+                <div class="gradient"></div>
+            </div>
+            <div class="spotifylink"></div>
+        </article>
+    </template>
     <script src="javascript.js"></script>
 
-</body></html>
+</body>
+
+</html>

@@ -1,88 +1,54 @@
+// vores variabler og konstanter
+let filter = "alle";
+let kunstnere;
+let kunstner;
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-
 const medieurl = "https://upcoming-e777.restdb.io/media/";
-let menu;
 const myHeaders = {
-	"x-apikey": "602e74085ad3610fb5bb6332"
+    "x-apikey": "602e74085ad3610fb5bb6332"
 }
 
 console.log("ID", id);
+
+// når DOM er loadet kalder den efter funktionen "loadJSON"
 document.addEventListener("DOMContentLoaded", loadJSON);
 
-
-let filter = "alle";
-let menuer;
-
+// Henter JSON dataen for specifikke kunstner ved hjælp af id og henfører til visKunstner funktionen
 async function loadJSON() {
-	const JSONData = await fetch(`https://upcoming-e777.restdb.io/rest/kunstnere/${id}`, {
-		headers: myHeaders
-	});
-	menu = await JSONData.json();
+    const JSONData = await fetch(`https://upcoming-e777.restdb.io/rest/kunstnere/${id}`, {
+        headers: myHeaders
+    });
+    kunstner = await JSONData.json();
 
-	console.log("Menu", menu);
-	visMenu(menu);
-
-	const filterKnapper = document.querySelectorAll(".navmenu a");
-	filterKnapper.forEach(knap => knap.addEventListener("click", filtrerMenuer));
-
-	const filterKnapper2 = document.querySelectorAll(".burgermenu a");
-	filterKnapper2.forEach(knap => knap.addEventListener("click", filtrerMenuer));
+    console.log("Kunstner", kunstner);
+    visKunstner(kunstner);
 }
 
+//html articles fyldes med indhold
+function visKunstner() {
+    document.querySelector(".billede").src = medieurl + kunstner.billede;
 
-function toggleMenu() {
-	console.log("toggleMenu");
+    document.querySelector(".billede").alt = "Billede af " + kunstner.navn;
 
-	document.querySelector("#burgersection").classList.toggle("hidden");
+    document.querySelector(".billede").title = kunstner.navn;
 
-	let erSkjult = document.querySelector("#burgersection").classList.contains("hidden");
+    document.querySelector(".billedecredits").textContent = kunstner.billedecredits;
 
-	if (erSkjult == true) {
-		document.querySelector("#burgerknap").textContent = "☰";
+    document.querySelector(".navn").textContent = kunstner.navn;
 
-	} else {
-		document.querySelector("#burgerknap").textContent = "✖";
+    document.querySelector(".genre").textContent = "Genre: " + kunstner.genre;
+    //VIRKER OGSÅ: klon.querySelector(".genre").innerHTML += ` ${kunstner.efternavn}`;
 
+    document.querySelector(".youtubelink").innerHTML = kunstner.youtube;
+    document.querySelector(".om").textContent = kunstner.om;
+    document.querySelector(".lyttere").textContent = kunstner.lyttere;
 
-	}
-}
-
-
-
-
-function filtrerMenuer() {
-	filter = this.dataset.kategori;
-
-	document.querySelector(".valgt").classList.remove("valgt");
-	this.classList.add("valgt");
-	header.textContent = this.textContent;
-
+    document.querySelector("button").addEventListener("click", tilbageTilKunstnere); //laver en eventlistener "click" på tilbageknap og refererer til tilbageTilKunstnere
 
 }
 
-function visMenu() {
-	document.querySelector(".billede").src = medieurl + menu.billede;
-
-	document.querySelector(".billede").alt = "Billede af " + menu.navn;
-
-	document.querySelector(".billede").title = menu.navn;
-
-	document.querySelector(".billedecredits").textContent = menu.billedecredits;
-
-	document.querySelector(".navn").textContent = menu.navn;
-
-	document.querySelector(".genre").textContent = "Genre: " + menu.genre;
-	//VIRKER OGSÅ: klon.querySelector(".navn").innerHTML += ` ${menu.efternavn}`;
-
-	document.querySelector(".youtubelink").innerHTML = menu.youtube;
-	document.querySelector(".om").textContent = menu.om;
-	document.querySelector(".lyttere").textContent = menu.lyttere;
-
-	document.querySelector("button").addEventListener("click", tilbageTilMenu);
-
-}
-
-function tilbageTilMenu() {
-	history.back();
+// funktion der går tilbage til forrige side
+function tilbageTilKunstnere() {
+    history.back();
 }
