@@ -4,139 +4,109 @@
 
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Upcoming | Dansk musik</title>
-	<link rel="stylesheet" href="CSS/mutual.css">
-	<link rel="stylesheet" href="CSS/upcoming.css">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Semi+Condensed:ital,wght@1,800&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
-	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-	<link rel="icon" href="/images/favicon.png" type="image/x-icon">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming | Dansk musik</title>
+    <link rel="stylesheet" href="CSS/mutual.css">
+    <link rel="stylesheet" href="CSS/upcoming.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Semi+Condensed:ital,wght@1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
-
-
 <body>
-
-
-
-
-	<header class="absolute">
-		<!--filtreringsknapper med data attributter-->
-		<nav class="navmenu">
-			<a>
-				<button data-genre="alle" class="valgt">Alle</button>
-			</a>
-			<a>
-				<button data-genre="Pop">Pop</button>
-			</a>
-			<a>
-				<button data-genre="Rap">Rap</button>
-			</a>
-			<a>
-				<button data-genre="RnB">RnB</button>
-			</a>
-			<a>
-				<button data-genre="Hip Hop">Hip Hop</button>
-			</a>
-		</nav>
-	</header>
-
-
-	<!--splash-billede indsat via CSS-->
-	<div class="page-splash">
-		<!--logo og headers på splash-billede-->
-		<nav class="logo">
-			<!--<img src="../images/logohvidt.svg" alt="logo">-->
-			<img src="images/logohvidt.svg" alt="logo">
-		</nav>
-		<h1>Alt nyt fra den danske musikscene til dig</h1>
-		<h3>Scroll ned ↓</h3>
-	</div>
-
-
-	<!--fixed baggrund indsat via CSS-->
-	<div class="page-background"></div>
-
-
-	<div class="page-body">
-		<main>
-			<h2 class="genretitel">Alle</h2>
-			<!--tom container til alle kunstnerne-->
-			<section id="liste"></section>
-		</main>
-		<footer id="footer">
-			<div class="section_wrapper">
-				<div class="col">
-					<img src="CSS/logo_hvidt.svg">
-					<form>
-						<label for="email">E-MAIL</label>
-						<input id="email" name="email" type="email">
-						<button>SUBSCRIBE</button>
-					</form>
-				</div>
-				<div class="col">
-					<h3>FIND OS HER</h3>
-					<p>Voresvej 291
-						<br> 1421 København K
-						<br>Danmark
-					</p>
-				</div>
-				<div class="col">
-					<div class="top">
-						<h3>KONTAKT</h3>
-						<p>
-							voresmail@hotmail.dk
-							<br>Tel: +45 12 34 43 21
-						</p>
-					</div>
-					<div class="bottom">
-						<a href="#" class="fa fa-facebook"></a>
-
-						<a href="#" class="fa fa-instagram"></a>
-
-						<a href="#" class="fa fa-youtube"></a>
-
-					</div>
-				</div>
-			</div>
-			<div class="mobil">
-				<h3>KONTAKT</h3>
-				<p>
-					voresmail@hotmail.dk
-					<br>Tel: +45 12 34 43 21
-				</p>
-				<p>Voresvej 291
-					<br> 1421 København K
-					<br>Danmark
-				</p>
-			</div>
-		</footer>
-	</div>
-
-	<!--indholdet af <template> tag er html skabelon for de enkelte kunstnere-->
-	<template>
-		<article class="kunstner">
-			<div>
-				<h2 class="navn"></h2>
-				<p class="genre"></p>
-				<button class="articleknap">Vis mere</button>
-			</div>
-			<div class="billede-overlay">
-				<img src="" alt="" class="billede">
-				<!--gradient overlay over billede-->
-				<div class="gradient"></div>
-			</div>
-			<div class="spotifylink"></div>
-		</article>
-	</template>
-	<script src="javascript.js"></script>
-
-
-</body>
-
-</html>
+    <header class="absolute">
+        <!--filtreringsknapper med data attributter-->
+        <nav class="navmenu">
+            <a><button data-genre="alle" class="valgt">Alle</button></a>
+            <a><button data-genre="Pop">Pop</button></a>
+            <a><button data-genre="Rap">Rap</button></a>
+            <a><button data-genre="RnB">RnB</button></a>
+            <a><button data-genre="Hip Hop">Hip Hop</button></a>
+        </nav>
+    </header>
+    <!--splash-billede indsat via CSS-->
+    <div class="page-splash">
+        <!--logo og headers på splash-billede-->
+        <nav class="logo">
+            <!--<img src="../images/logohvidt.svg" alt="logo">-->
+            <img src="images/logohvidt.svg" alt="logo">
+        </nav>
+        <h1>Alt nyt fra den danske musikscene til dig</h1>
+        <h3>Scroll ned ↓</h3>
+    </div>
+    <!--fixed baggrund indsat via CSS-->
+    <div class="page-background"></div>
+    <div class="page-body">
+        <main>
+            <h2 class="genretitel">Alle</h2>
+            <!--tom container til alle kunstnerne-->
+            <section id="liste"></section>
+        </main>
+        <footer id="footer">
+            <div class="section_wrapper">
+                <div class="col">
+                    <img src="CSS/logo_hvidt.svg">
+                    <form>
+                        <label for="email">E-MAIL</label>
+                        <input id="email" name="email" type="email">
+                        <button>SUBSCRIBE</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <h3>FIND OS HER</h3>
+                    <p>Voresvej 291
+                        <br> 1421 København K
+                        <br>Danmark
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="top">
+                        <h3>KONTAKT</h3>
+                        <p>
+                            voresmail@hotmail.dk
+                            <br>Tel: +45 12 34 43 21
+                        </p>
+                    </div>
+                    <div class="bottom">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-youtube"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobil">
+                <h3>KONTAKT</h3>
+                <p>
+                    voresmail@hotmail.dk
+                    <br>Tel: +45 12 34 43 21
+                </p>
+                <p>Voresvej 291
+                    <br> 1421 København K
+                    <br>Danmark
+                </p>
+            </div>
+        </footer>
+    </div>
+    <!--indholdet af <template> tag er html skabelon for de enkelte kunstnere-->
+    <template>
+        <article class="kunstner">
+            <div>
+                <h2 class="navn"></h2>
+                <p class="genre"></p>
+                <button class="articleknap">Vis mere</button>
+            </div>
+            <div class="billede-overlay">
+                <img src="" alt="" class="billede">
+                <!--gradient overlay over billede-->
+                <div class="gradient"></div>
+            </div>
+            <div class="spotifylink"></div>
+        </article>
+    </template>
+    <script src="javascript.js"></script>l
+</body></html>

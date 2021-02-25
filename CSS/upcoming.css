@@ -43,17 +43,16 @@ header button:mousedown {
     position: fixed;
     /* falder oppe fra og ned på sin orginale plads */
     transform: translateY(0%);
-    /* dukker op på 0.3 sekunder */
+    /* falder ned på 0.3 sekunder */
     transition: transform 0.3s;
 }
 
 /* bliver sat til header via javascript når man er på splashsiden, og ikke har scrollet ned */
 .absolute {
-    /* ikke synlig (tager header ud af dokumentets flow) */
-    position: absolute;
-    /* falder oppa fra (over skærmen) og ned */
+    position: fixed;
+    /* hopper ned fra og op (over skærmen) */
     transform: translateY(-100%);
-    /* falder på 0.3 sekunder */
+    /* hopper op på 0.3 sekunder */
     transition: transform 0.3s;
 }
 
