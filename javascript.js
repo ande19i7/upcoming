@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", start)
 // første funktion der kaldes efter DOM er loaded
 function start() {
     loadJSON();
-    const filterKnapper = document.querySelectorAll(".navmenu a button");
+    const filterKnapper = document.querySelectorAll(".navmenu button");
     filterKnapper.forEach(knap => knap.addEventListener("click", filtrerKunstnere)); // laver en eventlistener "click" på filtreringsknapperne i header
 }
 
