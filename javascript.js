@@ -1,55 +1,101 @@
+// vores variabler og konstanter
+let filter = "alle";
+let kunstnere;
 const header = document.querySelector("h2");
 const medieurl = "https://upcoming-e777.restdb.io/media/";
 const myHeaders = {
     "x-apikey": "602e74085ad3610fb5bb6332"
 }
 
+// når DOM er loadet kalder den efter funktionen "start"
+document.addEventListener("DOMContentLoaded", start)
+
+// første funktion der kaldes efter DOM er loaded
+function start() {
+    loadJSON();
+    const filterKnapper = document.querySelectorAll(".navmenu a button");
+    filterKnapper.forEach(knap => knap.addEventListener("click", filtrerKunstnere)); // laver en eventlistener "click" på filtreringsknapperne i header
+}
+
+// Henter JSON dataen og henfører til visKunstnere funktionen
+async function loadJSON() {
+    const JSONData = await fetch("https://upcoming-e777.restdb.io/rest/kunstnere", {
+        headers: myHeaders
+    });
+    kunstnere = await JSONData.json();
+    console.log("Kunstnere", kunstnere);
+    visKunstnere();
+}
+
+// Viser de kunstnere indenfor genren som er valgt
+function filtrerKunstnere() {
+    console.log("filtrerer genre")
+    filter = this.dataset.genre; // Viser de kunstnere indenfor genren som er valgt
+    document.querySelector(".valgt").classList.remove("valgt");
+    this.classList.add("valgt"); // når der klikkes på fitreringsknapperne får den trykkede knap en class
+    header.textContent = this.textContent; //h2 får ny textContent svarende til teksten i knappen.
+    visKunstnere();
+
+}
+
+//funktion der viser kunstnere i liste view
+function visKunstnere() {
+    const dest = document.querySelector("#liste"); // container til articles med en person
+    const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
+    dest.textContent = ""; // html containeren tømmes før der fyldes nyt indhold i den
+    kunstnere.forEach(kunstner => { //array'et kunstnere løbes igennem, og hver kunstner indsættes i html
+        console.log(kunstner);
+        // loop igennem json (kunstnere)
+        if (filter == kunstner.genre || filter == "alle") {
+            const klon = skabelon.cloneNode(true); // html template klones og fyldes med indhold
+            klon.querySelector(".billede").src = medieurl + kunstner.billede;
+
+            klon.querySelector(".billede").alt = "Billede af " + kunstner.navn;
+
+            klon.querySelector(".billede").title = kunstner.navn;
+
+            klon.querySelector(".navn").textContent = kunstner.navn;
+
+            klon.querySelector(".genre").textContent = "Genre: " + kunstner.genre;
+            //VIRKER OGSÅ: klon.querySelector(".navn").innerHTML += ` ${person.efternavn}`;
+            klon.querySelector(".spotifylink").innerHTML = kunstner.spotifylink;
+            klon.querySelector(".kunstner button").addEventListener("click", () => visDetaljer(kunstner)); // laver en eventlistener "click" til knap som refererer til visDetaljer funktionen
+            dest.appendChild(klon); //klonen tilføjes til DOM
+        }
+    })
+}
+
+// her hopper man over til detalje-siden
+function visDetaljer(detaljer) {
+    console.log("02-detalje.html");
+    location.href = `upcoming-detaljer.html?id=${detaljer._id}`;
+}
+
+
+// Lånt kode -----------------------------------------------
+// Kode der gør, at når man har scrollet en vis længde tilføjes- eller fjernes en class fra et element.
+
+
+// laver en variabel
 let scrollpos = function () {
     return window.scrollY
 };
 
-document.addEventListener("DOMContentLoaded", start)
-
-let filter = "alle";
-let menuer;
-
-
-
-
-// første funktion der kaldes efter DOM er loaded
-function start() {
-    const filterKnapper = document.querySelectorAll(".navmenu a button");
-    filterKnapper.forEach(knap => knap.addEventListener("click", filtrerMenuer));
-    loadJSON();
-
-    const filterKnapper2 = document.querySelectorAll(".burgermenu a");
-    filterKnapper2.forEach(knap => knap.addEventListener("click", filtrerMenuer));
-    loadJSON();
-
-
-
-
-
-
-    document.querySelector("header").classList.add("fixed");
-
-
-
-}
-
-
+// laver en eventlistener "scroll"
 window.addEventListener('scroll', function () {
 
     scrollpos = window.scrollY;
 
-    if (scrollpos > 700) {
-        addFixed();
-    } else if (scrollpos < 700) {
-        removeFixed();
+    // laver to funktioner ud fra hvor meget man har scrollet
+    if (scrollpos > 600) {
+        addFixed(); // når scrollpositionen er over 600 --> addFixed
+    } else if (scrollpos < 600) {
+        removeFixed(); // når scrollpositionen er under 600 --> removeFixed
     }
 
 });
 
+// fjerner class med position absolute og tilføjer class med position fixed
 function addFixed() {
     document.querySelector("header").classList.remove("absolute");
     document.querySelector("header").classList.add("fixed");
@@ -57,91 +103,9 @@ function addFixed() {
 
 }
 
+// fjerner class med position fixed og tilføjer class med position absolute
 function removeFixed() {
     document.querySelector("header").classList.remove("fixed");
     document.querySelector("header").classList.add("absolute");
     console.log("stop fixed");
-}
-
-
-
-function toggleMenu() {
-    console.log("toggleMenu");
-
-    document.querySelector("#burgersection").classList.toggle("hidden");
-
-    let erSkjult = document.querySelector("#burgersection").classList.contains("hidden");
-
-    if (erSkjult == true) {
-        document.querySelector("#burgerknap").textContent = "☰";
-
-    } else {
-        document.querySelector("#burgerknap").textContent = "✖";
-
-
-    }
-}
-
-
-
-
-function filtrerMenuer() {
-    filter = this.dataset.genre;
-
-    document.querySelector(".valgt").classList.remove("valgt");
-    this.classList.add("valgt");
-    header.textContent = this.textContent;
-
-    visMenuer();
-}
-
-
-
-async function loadJSON() {
-    const JSONData = await fetch("https://upcoming-e777.restdb.io/rest/kunstnere", {
-
-        headers: myHeaders
-    });
-    menuer = await JSONData.json();
-    console.log("Menu", menuer);
-    visMenuer();
-}
-
-
-
-//funktion der viser menuer i liste view
-function visMenuer() {
-    const dest = document.querySelector("#liste"); // container til articles med en person
-    const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
-    dest.textContent = "";
-    menuer.forEach(menu => {
-        console.log(menu);
-        // loop igennem json (menuer)
-        if (filter == menu.genre || filter == "alle") {
-            const klon = skabelon.cloneNode(true);
-            klon.querySelector(".billede").src = medieurl + menu.billede;
-
-            klon.querySelector(".billede").alt = "Billede af " + menu.navn;
-
-            klon.querySelector(".billede").title = menu.navn;
-
-            klon.querySelector(".navn").textContent = menu.navn;
-
-            klon.querySelector(".genre").textContent = "Genre: " + menu.genre;
-            //VIRKER OGSÅ: klon.querySelector(".navn").innerHTML += ` ${person.efternavn}`;
-
-
-            klon.querySelector(".spotifylink").innerHTML = menu.spotifylink;
-
-
-
-            klon.querySelector(".menu button").addEventListener("click", () => visDetaljer(menu));
-            dest.appendChild(klon);
-        }
-    })
-}
-
-function visDetaljer(detaljer) {
-    console.log("02-detalje.html");
-    location.href = `upcoming-detaljer.html?id=${detaljer._id}`;
 }
