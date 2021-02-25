@@ -95,17 +95,17 @@ window.addEventListener('scroll', function () {
 
 });
 
-// fjerner class med position absolute og tilføjer class med position fixed
+// fjerner class med translatey(-100%) og tilføjer class med translatey(0%)
 function addFixed() {
-    document.querySelector("header").classList.remove("absolute");
+    document.querySelector("header").classList.remove("fixed-notshowing");
     document.querySelector("header").classList.add("fixed");
     console.log("add fixed");
 
 }
 
-// fjerner class med position fixed og tilføjer class med position absolute
+// fjerner class med translatey(0%) og tilføjer class med translatey(-100%)
 function removeFixed() {
     document.querySelector("header").classList.remove("fixed");
-    document.querySelector("header").classList.add("absolute");
-    console.log("stop fixed");
+    document.querySelector("header").classList.add("fixed-notshowing");
+    console.log("fixed not showing");
 }

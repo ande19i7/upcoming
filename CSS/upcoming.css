@@ -48,7 +48,7 @@ header button:mousedown {
 }
 
 /* bliver sat til header via javascript når man er på splashsiden, og ikke har scrollet ned */
-.absolute {
+.fixed-notshowing {
     position: fixed;
     /* hopper ned fra og op (over skærmen) */
     transform: translateY(-100%);
